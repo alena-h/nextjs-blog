@@ -11,8 +11,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "custom-gradient":
+          "radial-gradient(circle at center, rgba(81, 159, 165, 0.2), transparent 70%)",
+      },
       colors: {
-        "background-main": "#343636",
+        "background-main": "#1b2626",
         "background-dark": "#17191B",
         "primary-font-blue": "#EAF3F3",
         "secondary-font-pink": "#E27D71",
@@ -42,7 +46,7 @@ module.exports = {
         slideInLeft: "slideInLeft 1s ease-out",
         slideInRight: "slideInRight 1s ease-out forwards",
         fallDown: "fallDown 1s ease-out forwards",
-        wiggle: "wiggle 0.8s ease-in-out 3",
+        wiggle: "wiggle 0.5s ease-in-out 2",
       },
     },
   },

@@ -1,0 +1,35 @@
+import Skills from "./Skills";
+
+export default function About() {
+  return (
+    <section id="about" className="section flex-col">
+      <div className="container">
+        <h2 className="section-title">About me</h2>
+        <p className="text text-justify lg:px-8">
+          Enthusiastic Frontend Developer with a background in nutrition
+          science. As a former health professional, I understand the human
+          brain, and how this knowledge translates into design, engagement, and
+          building relationships.
+          <br /> I’m passionate about creating intuitive, engaging, and
+          accessible websites and applications that prioritize aesthetics,
+          functionality, and user experience. <br />
+          With a solid foundation in React, I’m eager to tackle challenges
+          head-on and contribute to impactful projects in a collaborative
+          environment. I am excited to continue learning, growing, and
+          delivering innovative, scalable web applications that enhance user
+          experiences and drive success. <br />
+          I’m also interested in exploring 3D and animation to create more
+          exciting and dynamic applications, currently diving into libraries
+          like Three.js and GSAP. <br />
+        </p>
+        <p className="text pt-6 text-center lg:px-8">
+          <b>
+            Looking for a first job opportunity in the IT field to kickstart my
+            career. 🚀
+          </b>
+        </p>
+      </div>
+      <Skills />
+    </section>
+  );
+}

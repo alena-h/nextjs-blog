@@ -1,6 +1,21 @@
+import React, { useState } from "react";
+
 export default function Home() {
+  const [isDownloaded, setIsDownloaded] = useState(false);
+
+  const handleDownload = () => {
+    setIsDownloaded(true);
+    setTimeout(() => {
+      window.open("/Alena-Hanchar-CV.pdf", "CV_alena_hanchar");
+    }, 700);
+
+    setTimeout(() => {
+      setIsDownloaded(false);
+    }, 3000);
+  };
+
   return (
-    <section className="mx-4 flex min-h-[calc(100vh-4rem)] items-center justify-center pt-8 lg:pt-0">
+    <section id="home" className="section">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-around gap-10 md:flex-row md:gap-20 lg:px-8">
         <div id="left" className="relative">
           <img
@@ -35,33 +50,53 @@ export default function Home() {
             ✨ passionate about design and UX <br />
             🐶 dog-lover and photography enthusiast
           </p>
-          <button className="animate-wiggle animation-delay-4000 mx-auto flex w-full min-w-52 max-w-[calc(100%-3rem)] flex-row justify-center gap-2 text-nowrap rounded-lg bg-tertiary-font-action-blue py-2 pl-4 font-semibold text-primary-font-blue shadow-lg shadow-primary-font-blue/25 hover:bg-tertiary-font-action-blue/90">
-            Download CV
-            <svg
-              width="30"
-              height="30"
-              viewBox="0 0 30 30"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+          <button
+            onClick={handleDownload}
+            className="animate-wiggle animation-delay-3000 relative mx-auto flex h-12 w-full min-w-52 max-w-[calc(100%-3rem)] flex-row items-center justify-center gap-2 text-nowrap rounded-lg bg-tertiary-font-action-blue py-2 font-semibold text-primary-font-blue shadow-lg shadow-white/25 hover:bg-tertiary-font-action-blue/90"
+          >
+            <span
+              className={`absolute flex transform items-center gap-2 transition-opacity duration-500 ease-in-out ${
+                isDownloaded ? "scale-100 opacity-100" : "scale-0 opacity-0"
+              }`}
             >
-              <rect width="30" height="30" fill="url(#pattern0_74_42)" />
-              <defs>
-                <pattern
-                  id="pattern0_74_42"
-                  patternContentUnits="objectBoundingBox"
-                  width="1"
-                  height="1"
-                >
-                  <use href="#image0_74_42" transform="scale(0.0166667)" />
-                </pattern>
-                <image
-                  id="image0_74_42"
-                  width="50"
-                  height="50"
-                  href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAAkdJREFUaAXtmk1uE0EQRh3EAbJkRcBO4BogoRyBC2TFEsXJLjHsIJwkOYUJEivOEAQkWScElsmjy+5Go3b3TI8lO1NWlTRuz/RfvfqqZ0Zt93pmFgGLgEWgZQSAh8CDlt10NgfeAn9ceQ0c6KQo9Bp4zaxtF3bX1wz4MMvLR30khR4DnxLAR4Xd9TUz4KncprC+3M14bCltKZ1JDa2XLaUtpbXmbsZvS2lL6UxqaL1sKW0prTV3M36rT2ngKXAK3ACfgWcZ1snleYCB58DY74N9AZ7UzbHQOuDrdBn+//xe51BbYBkLkDGrNl4oVN3gbtfxtuqJ/y4OJpVuA+yVvUyMf1fn00LrfDonfJqoshFPXgqcUTbM8y0ed2nnwGPgZ/AkKi9ipUuApQ8gfVMmc80EcmnAMhEwSKyz4OxZdU03ATcoK7CDpcLlJgP6NUqfA1s+ONltWg8rbVMmsPd3d06BlyidUxjYBCQbUvajM8rG4B76V8prQNQ7TtSdALk+3VM2Ax0/OxOcjZdE8W6s2RgyPvdKizrzWveVzUDn1mVdIPQom4Fuo7S01ZHGMWw4948budM2max73bAVaHk5qVNav7IBNpRe6RS0KNsP7VaqTNy9V0/ZWDHgkXvR2AHeAOtxvZ1bBCwCFoG5IuB2Cl+43chdYE/ZMRTfW0ED75teixTUD4ug/R8/5X+Q2u1KWBqhPfBv7bRuGf51mbrWCCwNgP0VAB4VwYZGwCsHPQLeKTsO3c8+LwOHlRYBi4BFwCJgEehwBP4Bnwm3x/rX+EkAAAAASUVORK5CYII="
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 12l4 4L19 7"
+                  stroke="#EAF3F3"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 />
-              </defs>
-            </svg>
+              </svg>
+            </span>
+            <span
+              className={`absolute flex items-center gap-2 pl-4 transition-opacity duration-500 ease-in-out ${
+                isDownloaded ? "opacity-0" : "opacity-100"
+              }`}
+            >
+              Download CV
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 26 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13 1.5V17.5M13 17.5L19.5 11.5M13 17.5L6.5 11.5M1.5 23H24.5"
+                  stroke="#EAF3F3"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
           </button>
         </div>
       </div>
