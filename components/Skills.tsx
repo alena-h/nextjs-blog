@@ -1,38 +1,46 @@
 import React from "react";
 
-const skillIcons = [
-  "/images/css3.png",
-  "/images/html5.png",
-  "/images/react.png",
-  "/images/javascript.png",
-  "/images/typescript.png",
-  "/images/styled_components.svg",
-  "/images/tailwind.svg",
-  "/images/git.png",
-  "/images/npm.png",
-  "/images/storybook.png",
-  "/images/jest.png",
-  "/images/figma.png",
-  "/images/photoshop.png",
-  "/images/illustrator.png",
-];
+export const SkillIcons = {
+  CSS3: "/images/css3.png",
+  HTML5: "/images/html5.png",
+  React: "/images/react.png",
+  JavaScript: "/images/javascript.png",
+  TypeScript: "/images/typescript.png",
+  StyledComponents: "/images/styled_components.svg",
+  Tailwind: "/images/tailwind.svg",
+  Git: "/images/git.png",
+  NPM: "/images/npm.png",
+  Storybook: "/images/storybook.png",
+  Jest: "/images/jest.png",
+  Figma: "/images/figma.png",
+  Photoshop: "/images/photoshop.png",
+  Illustrator: "/images/illustrator.png",
+  Next: "/images/next.svg",
+  Lightroom: "/images/lr.png",
+  Thunkable: "/images/thunkable.png",
+  ClipStudioPaint: "/images/csp.png",
+  GoogleForms: "/images/forms.png",
+  Three: "/images/threejs.png",
+  GSAP: "/images/gsap.png",
+};
 
 export default function Skills() {
   return (
-    <div className="mt-16">
+    <div>
       <div className="container px-4 py-4 lg:px-8">
         <h3 className="pb-4 text-2xl font-bold text-primary-font-blue">
           Skills
         </h3>
-        <div className="grid grid-cols-3 gap-6 md:grid-cols-4 lg:grid-cols-7">
-          {skillIcons.map((src, index) => (
+        <div className="relative grid grid-cols-3 gap-6 md:grid-cols-4 lg:grid-cols-7">
+          {/* Convert the SkillIcons object into an array of entries and map over them */}
+          {Object.entries(SkillIcons).map(([name, src], index) => (
             <div
               key={index}
               className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-lg bg-white p-4"
             >
               <img
                 src={src}
-                alt={`Skill ${index + 1}`}
+                alt={name}
                 className="h-full w-full object-contain"
               />
             </div>

@@ -4,6 +4,7 @@ import Home from "../components/Home";
 import Experience from "../components/Experience";
 import About from "../components/About";
 import Cursor from "../components/Cursor";
+import Work from "../components/Work";
 
 export default function Portfolio() {
   return (
@@ -13,6 +14,7 @@ export default function Portfolio() {
       <main className="flex flex-col gap-24">
         <Home />
         <Experience />
+        <Work />
         <About />
       </main>
     </div>

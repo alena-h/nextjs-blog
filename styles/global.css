@@ -11,11 +11,11 @@ body {
 }
 
 .section {
-  @apply mx-4 flex min-h-[calc(100vh-4rem)] snap-start items-center justify-center overflow-y-auto overflow-x-hidden pt-20;
+  @apply mx-4 flex min-h-[calc(100vh-4rem)] snap-start items-center justify-center overflow-y-auto overflow-x-hidden pb-32 pt-20;
 }
 
 .container {
-  @apply mx-auto flex w-full max-w-7xl flex-col items-center pb-32;
+  @apply mx-auto flex w-full max-w-7xl flex-col items-center;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -31,6 +31,36 @@ body {
 }
 
 .cursor {
-  @apply bg-custom-gradient pointer-events-none fixed inset-0 z-30 aspect-square w-[400] rounded-full bg-blend-color-dodge mix-blend-color-dodge transition duration-300 lg:w-[600px];
+  @apply pointer-events-none fixed inset-0 z-30 aspect-square w-[400] rounded-full bg-custom-gradient bg-blend-color-dodge mix-blend-color-dodge transition duration-300 lg:w-[600px];
   transform: translate(-50%, -50%);
+}
+
+.rocket {
+  @apply relative z-50 m-7 inline-block h-9 w-9 cursor-pointer;
+  offset-path: path(
+    "M18.3,18.3c0,0,19.8-73.6,84.7-73.2c89,0.4,120.5,149.7-29.5,149.7c-91,0-125.2-66.1-120-108.9L-800,-800"
+  );
+  offset-distance: 0%;
+}
+
+.rocket-hover:hover {
+  @apply animate-wiggle;
+}
+
+.tab-button {
+  @apply cursor-pointer rounded-t-md border-2 border-b-0 border-tertiary-font-action-blue bg-transparent px-4 py-2 font-semibold text-tertiary-font-action-blue shadow-[0_0_10px_1px_rgba(81,159,165)];
+  transition: background-color 0.2s;
+}
+
+.tab-button.active {
+  @apply bg-tertiary-font-action-blue text-primary-font-blue;
+}
+
+.work-card {
+  @apply rounded-lg border-none bg-transparent shadow-[0_0_10px_1px_rgba(81,159,165)];
+  transition: shadow 0.2s;
+}
+
+.work-card:hover {
+  @apply shadow-none;
 }

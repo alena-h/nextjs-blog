@@ -1,6 +1,17 @@
+import { useState } from "react";
 import Skills from "./Skills";
 
 export default function About() {
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleClick = () => {
+    setIsAnimating(true);
+
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 2000);
+  };
+
   return (
     <section id="about" className="section flex-col">
       <div className="container">
@@ -25,7 +36,12 @@ export default function About() {
         <p className="text pt-6 text-center lg:px-8">
           <b>
             Looking for a first job opportunity in the IT field to kickstart my
-            career. 🚀
+            career. <br />
+            <img
+              src="/images/rocket.png"
+              className={`rocket ${isAnimating ? "animate-fly" : "rocket-hover"}`}
+              onClick={handleClick}
+            />
           </b>
         </p>
       </div>

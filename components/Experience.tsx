@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useInView } from "react-intersection-observer";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const experiences = [
   {
@@ -42,30 +42,47 @@ const experiences = [
 ];
 
 export default function Experience() {
-  const [highestVisibleIndex, setHighestVisibleIndex] = useState(0);
-  const [lineHeight, setLineHeight] = useState(0);
+  const [visibleItemsCount, setVisibleItemsCount] = useState(0);
   const containerRef = useRef(null);
+  const [lineHeight, setLineHeight] = useState(0);
+  const animationCompleteRef = useRef(false);
+  const totalItems = experiences.length;
+
+  // Function to update the line height progressively
+  const updateLineHeight = () => {
+    if (containerRef.current) {
+      const containerHeight = containerRef.current.offsetHeight;
+      const newHeight = (visibleItemsCount / totalItems) * containerHeight;
+      setLineHeight(newHeight);
+    }
+  };
+
+  // Final height adjustment after everything is visible or on window resize
+  const adjustFinalHeight = () => {
+    if (containerRef.current) {
+      const containerHeight = containerRef.current.offsetHeight;
+      setLineHeight(containerHeight); // Set the line to match the full container height
+    }
+  };
+
+  // Incrementally grow the line as items become visible
+  useEffect(() => {
+    updateLineHeight();
+  }, [visibleItemsCount]);
+
+  // Adjust height on window resize
+  useEffect(() => {
+    window.addEventListener("resize", adjustFinalHeight);
+    return () => {
+      window.removeEventListener("resize", adjustFinalHeight);
+    };
+  }, []);
 
   useEffect(() => {
-    const updateLineHeight = () => {
-      if (containerRef.current) {
-        const containerHeight = containerRef.current.offsetHeight;
-        const totalItems = experiences.length;
-        const newHeight =
-          ((highestVisibleIndex + 1) / totalItems) * containerHeight - 30;
-        console.log(`Updating highestVisibleIndex: ${highestVisibleIndex}`);
-        setLineHeight(newHeight);
-      }
-    };
-
-    updateLineHeight();
-
-    window.addEventListener("resize", updateLineHeight);
-
-    return () => {
-      window.removeEventListener("resize", updateLineHeight);
-    };
-  }, [highestVisibleIndex]);
+    if (animationCompleteRef.current) {
+      updateLineHeight();
+    }
+  }, [visibleItemsCount]);
 
   return (
     <section id="experience" className="section">
@@ -76,7 +93,7 @@ export default function Experience() {
             className="absolute left-2 w-0.5 bg-tertiary-font-action-blue shadow-[0_0_10px_1px_rgba(81,159,165)]"
             initial={{ height: 0 }}
             animate={{ height: lineHeight }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
           ></motion.div>
           {experiences.map((exp, index) => (
             <ExperienceItem
@@ -85,8 +102,11 @@ export default function Experience() {
               title={exp.title}
               link={exp.link}
               description={exp.description}
-              index={index}
-              setHighestVisibleIndex={setHighestVisibleIndex}
+              setVisibleItemsCount={setVisibleItemsCount}
+              onComplete={() => {
+                animationCompleteRef.current = true;
+                updateLineHeight();
+              }}
             />
           ))}
         </div>
@@ -100,23 +120,19 @@ function ExperienceItem({
   title,
   link,
   description,
-  index,
-  setHighestVisibleIndex,
+  setVisibleItemsCount,
+  onComplete,
 }) {
   const { ref, inView } = useInView({
-    triggerOnce: false,
+    triggerOnce: true,
     threshold: 0.1,
   });
 
   useEffect(() => {
     if (inView) {
-      setHighestVisibleIndex((prevIndex) => Math.max(prevIndex, index));
-    } else {
-      setHighestVisibleIndex((prevIndex) =>
-        prevIndex === index ? index - 1 : prevIndex,
-      );
+      setVisibleItemsCount((prev) => prev + 1); // Directly update the count
     }
-  }, [inView, index, setHighestVisibleIndex]);
+  }, [inView, setVisibleItemsCount]);
 
   return (
     <div ref={ref} className="relative flex flex-row py-10">
@@ -171,7 +187,8 @@ function ExperienceItem({
             height: inView ? "fit-content" : 0,
           }}
           transition={{ duration: 1.2, delay: 0.5 }}
-          className="mt-2 text-primary-font-blue"
+          onAnimationComplete={onComplete} // Call when animation is done
+          className="text mt-2 text-primary-font-blue"
         >
           {description}
         </motion.p>

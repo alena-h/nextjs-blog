@@ -19,7 +19,7 @@ module.exports = {
         "background-main": "#1b2626",
         "background-dark": "#17191B",
         "primary-font-blue": "#EAF3F3",
-        "secondary-font-pink": "#E27D71",
+        "secondary-font-pink": "#e8776a",
         "tertiary-font-action-blue": "#519FA5",
       },
       keyframes: {
@@ -41,12 +41,31 @@ module.exports = {
           "50%": { transform: "rotate(0deg)" },
           "75%": { transform: "rotate(5deg)" },
         },
+        fly: {
+          "0%": {
+            offsetDistance: "0%",
+            transform: "scale(1)",
+          },
+          "50%": {
+            offsetDistance: "50%",
+            transform: "rotate(45deg) scale(3)",
+          },
+          "75%": {
+            offsetDistance: "75%",
+            transform: "rotate(45deg) scale(1.5)",
+          },
+          "100%": {
+            offsetDistance: "100%",
+            transform: "scale(1)",
+          },
+        },
       },
       animation: {
         slideInLeft: "slideInLeft 1s ease-out",
         slideInRight: "slideInRight 1s ease-out forwards",
         fallDown: "fallDown 1s ease-out forwards",
         wiggle: "wiggle 0.5s ease-in-out 2",
+        fly: "fly 2s ease-in-out",
       },
     },
   },

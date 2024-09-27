@@ -12,7 +12,6 @@ export default function Navbar() {
           if (entry.isIntersecting) {
             const id = entry.target.id;
             setActiveSection(id);
-            console.log(`Active Section: ${id}`);
           }
         });
       },
