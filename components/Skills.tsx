@@ -31,12 +31,12 @@ export default function Skills() {
         <h3 className="pb-4 text-2xl font-bold text-primary-font-blue">
           Skills
         </h3>
-        <div className="relative grid grid-cols-3 gap-6 md:grid-cols-4 lg:grid-cols-7">
+        <div className="relative grid grid-cols-5 gap-6 md:grid-cols-7 lg:grid-cols-9 xl:grid-cols-10">
           {/* Convert the SkillIcons object into an array of entries and map over them */}
           {Object.entries(SkillIcons).map(([name, src], index) => (
             <div
               key={index}
-              className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-lg bg-white p-4"
+              className="flex h-24 w-24 items-center justify-center overflow-hidden rounded-lg bg-white p-4"
             >
               <img
                 src={src}

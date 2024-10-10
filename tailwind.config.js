@@ -5,6 +5,7 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./**/@material-tailwind/**/*.{html,js,ts,jsx,tsx,mdx}",
 
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
@@ -20,7 +21,7 @@ module.exports = {
         "background-dark": "#17191B",
         "primary-font-blue": "#EAF3F3",
         "secondary-font-pink": "#e8776a",
-        "tertiary-font-action-blue": "#519FA5",
+        "tertiary-font-action-blue": "#2DA3AC",
       },
       keyframes: {
         slideInLeft: {

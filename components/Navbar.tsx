@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 
 export default function Navbar() {
@@ -26,7 +27,7 @@ export default function Navbar() {
   return (
     <section className="fixed z-10 w-full bg-background-main">
       <nav className="mx-auto flex w-full max-w-7xl py-4 lg:px-8">
-        <ul className="mx-4 flex w-full flex-row justify-between text-primary-font-blue lg:mx-0">
+        <ul className="mx-4 flex w-full list-none flex-row justify-between text-primary-font-blue lg:mx-0">
           <li>
             <a className="text-lg font-semibold" href="#home">
               Alena Hanchar

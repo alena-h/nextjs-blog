@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -90,7 +91,7 @@ export default function Experience() {
         <h2 className="section-title">Experience</h2>
         <div ref={containerRef} className="relative">
           <motion.div
-            className="absolute left-2 w-0.5 bg-tertiary-font-action-blue shadow-[0_0_10px_1px_rgba(81,159,165)]"
+            className="absolute left-2 w-0.5 bg-tertiary-font-action-blue shadow-[0_0_10px_1px_rgba(45,163,172)]"
             initial={{ height: 0 }}
             animate={{ height: lineHeight }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -140,7 +141,7 @@ function ExperienceItem({
         initial={{ scale: 0 }}
         animate={{ scale: inView ? 1 : 0 }}
         transition={{ duration: 1 }}
-        className="absolute top-14 ml-[0.4rem] h-1.5 w-1.5 rounded-full bg-tertiary-font-action-blue shadow-[0_0_15px_10px_rgba(81,159,165)]"
+        className="absolute top-14 ml-[0.4rem] h-1.5 w-1.5 rounded-full bg-tertiary-font-action-blue shadow-[0_0_15px_10px_rgba(45,163,172)]"
       ></motion.span>
 
       <div className="ml-10">

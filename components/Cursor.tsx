@@ -1,26 +1,30 @@
+"use client";
 import React, { useEffect, useState } from "react";
 
 export default function Cursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [cursorX, setCursorX] = useState(0);
+  const [cursorY, setCursorY] = useState(0);
 
-  // Update cursor position
+  const move = (e) => {
+    const x = e.clientX || 0;
+    const y = e.clientY || 0;
+
+    setCursorX(x);
+    setCursorY(y);
+  };
+
   useEffect(() => {
-    const moveCursor = (e: MouseEvent) => {
-      setPosition({ x: e.pageX, y: e.pageY });
-    };
+    document.addEventListener("mousemove", move);
 
-    window.addEventListener("mousemove", moveCursor);
-
-    // Cleanup listener on component unmount
     return () => {
-      window.removeEventListener("mousemove", moveCursor);
+      document.removeEventListener("mousemove", move);
     };
   }, []);
 
   return (
     <div
       className="cursor"
-      style={{ left: `${position.x}px`, top: `${position.y}px` }}
+      style={{ left: `${cursorX}px`, top: `${cursorY}px` }}
     />
   );
 }

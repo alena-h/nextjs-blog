@@ -3,7 +3,23 @@
 @tailwind utilities;
 
 body {
-  @apply bg-background-main;
+  @apply bg-background-main font-sans;
+}
+
+p {
+  @apply text-lg text-primary-font-blue;
+}
+
+li {
+  @apply text-lg text-primary-font-blue;
+}
+
+ul {
+  @apply list-disc pl-5;
+}
+
+.p-large {
+  @apply pb-8 pt-8 text-[28px] leading-[45px];
 }
 
 .nav-link {
@@ -11,7 +27,7 @@ body {
 }
 
 .section {
-  @apply mx-4 flex min-h-[calc(100vh-4rem)] snap-start items-center justify-center overflow-y-auto overflow-x-hidden pb-32 pt-20;
+  @apply flex min-h-[calc(100vh-4rem)] snap-start justify-center overflow-y-auto overflow-x-hidden pb-32 pt-20;
 }
 
 .container {
@@ -22,12 +38,20 @@ body {
   display: none;
 }
 
+.mix-blend-lighten {
+  mix-blend-mode: lighten;
+}
+
 .section-title {
   @apply mb-12 text-center text-4xl font-bold text-secondary-font-pink;
 }
 
-.text {
-  @apply text-lg text-primary-font-blue;
+.project-title {
+  @apply text-left text-5xl font-bold text-secondary-font-pink;
+}
+
+.action-button {
+  @apply relative flex h-12 w-full min-w-52 max-w-[calc(100%-3rem)] flex-row items-center justify-center gap-2 text-nowrap rounded-lg bg-tertiary-font-action-blue py-2 font-semibold text-primary-font-blue shadow-lg shadow-white/25 hover:bg-tertiary-font-action-blue/90;
 }
 
 .cursor {
@@ -48,7 +72,7 @@ body {
 }
 
 .tab-button {
-  @apply cursor-pointer rounded-t-md border-2 border-b-0 border-tertiary-font-action-blue bg-transparent px-4 py-2 font-semibold text-tertiary-font-action-blue shadow-[0_0_10px_1px_rgba(81,159,165)];
+  @apply cursor-pointer rounded-t-md border-2 border-b-0 border-tertiary-font-action-blue bg-transparent px-4 py-2 font-semibold text-tertiary-font-action-blue shadow-[0_0_10px_1px_rgba(45,163,172)];
   transition: background-color 0.2s;
 }
 
@@ -57,7 +81,7 @@ body {
 }
 
 .work-card {
-  @apply rounded-lg border-none bg-transparent shadow-[0_0_10px_1px_rgba(81,159,165)];
+  @apply rounded-lg border-none bg-transparent shadow-[0_0_10px_1px_rgba(45,163,172)];
   transition: shadow 0.2s;
 }
 

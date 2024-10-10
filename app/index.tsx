@@ -3,14 +3,12 @@ import Navbar from "../components/Navbar";
 import Home from "../components/Home";
 import Experience from "../components/Experience";
 import About from "../components/About";
-import Cursor from "../components/Cursor";
 import Work from "../components/Work";
 
-export default function Portfolio() {
+export default function IndexPage() {
   return (
-    <div className="hide-scrollbar relative h-screen min-w-[650px] snap-y snap-mandatory overflow-x-hidden overflow-y-scroll">
+    <div className="hide-scrollbar relative min-w-[650px] snap-y snap-mandatory overflow-x-hidden overflow-y-scroll">
       <Navbar />
-      <Cursor />
       <main className="flex flex-col gap-24">
         <Home />
         <Experience />

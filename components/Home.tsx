@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 
 export default function Home() {
@@ -20,19 +21,19 @@ export default function Home() {
         <div id="left" className="relative">
           <img
             src="/portrait.png"
-            className="border-1 max-w-sm animate-slideInLeft rounded-full border-tertiary-font-action-blue shadow-[0_0_10px_2px_rgba(81,159,165)] lg:max-w-md"
+            className="max-w-sm animate-slideInLeft rounded-full lg:max-w-md"
             alt="Portrait"
           />
-          <h2 className="absolute left-24 top-[15%] animate-fallDown text-5xl text-primary-font-blue opacity-0 animation-delay-1000">
+          <h2 className="absolute left-20 top-[10%] animate-fallDown text-6xl text-secondary-font-pink opacity-0 animation-delay-1000">
             Hi,
           </h2>
-          <h2 className="absolute left-16 top-[30%] animate-fallDown text-5xl text-primary-font-blue opacity-0 animation-delay-1100">
+          <h2 className="absolute left-16 top-[30%] animate-fallDown text-5xl text-secondary-font-pink opacity-0 animation-delay-1100">
             my
           </h2>
-          <h2 className="absolute -right-7 top-[30%] animate-fallDown text-5xl text-primary-font-blue opacity-0 animation-delay-1200">
+          <h2 className="absolute -right-9 top-[30%] animate-fallDown text-5xl text-secondary-font-pink opacity-0 animation-delay-1200">
             name is
           </h2>
-          <h1 className="absolute -right-20 top-[40%] animate-fallDown text-7xl text-secondary-font-pink opacity-0 animation-delay-1300 xl:-right-32 xl:top-[45%] xl:text-8xl">
+          <h1 className="absolute -right-20 top-[40%] animate-fallDown text-7xl text-primary-font-blue opacity-0 animation-delay-1300 xl:-right-32 xl:top-[45%] xl:text-8xl">
             Alena<span className="text-8xl text-primary-font-blue">.</span>
           </h1>
         </div>
