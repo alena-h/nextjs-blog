@@ -49,7 +49,7 @@ export const Helios = () => {
       </div>
 
       <div className="relative w-full overflow-visible">
-        <div className="absolute z-10 grid grid-cols-1 md:grid-cols-2">
+        <div className="z-10 grid grid-cols-1 md:absolute md:grid-cols-2">
           <div className="flex flex-col justify-center gap-12">
             <a
               className="flex w-80 justify-center self-center md:justify-start md:self-auto"
@@ -68,11 +68,11 @@ export const Helios = () => {
             </p>
           </div>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-background-main"></div>
+        <div className="bg-gradient-to-r from-background-main md:absolute md:inset-0"></div>
         <img
           src="/images/helios.png"
           alt="helios map view"
-          className="relative -top-[5%] left-[30%] -z-10 w-[1000px] md:min-w-[800px]"
+          className="-z-10 w-[1000px] md:relative md:-top-[5%] md:left-[30%] md:min-w-[800px]"
         />
       </div>
 

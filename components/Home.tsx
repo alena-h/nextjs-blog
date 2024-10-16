@@ -20,17 +20,17 @@ export default function Home() {
       <div className="mx-auto flex h-[calc(100vh-8rem)] w-full max-w-7xl flex-col items-center justify-around gap-10 md:flex-row md:gap-20 lg:px-8">
         <div id="left" className="relative">
           <img
-            src="/portrait.png"
+            src="/me.png"
             className="max-w-sm animate-slideInLeft rounded-full lg:max-w-md"
             alt="Portrait"
           />
-          <h2 className="absolute left-20 top-[10%] animate-fallDown text-6xl text-secondary-font-pink opacity-0 animation-delay-1000">
+          <h2 className="absolute left-20 top-[10%] animate-fallDown text-6xl text-primary-font-blue opacity-0 animation-delay-1000">
             Hi,
           </h2>
-          <h2 className="absolute left-16 top-[30%] animate-fallDown text-5xl text-secondary-font-pink opacity-0 animation-delay-1100">
+          <h2 className="absolute left-16 top-[30%] animate-fallDown text-5xl text-primary-font-blue opacity-0 animation-delay-1100">
             my
           </h2>
-          <h2 className="absolute -right-9 top-[30%] animate-fallDown text-5xl text-secondary-font-pink opacity-0 animation-delay-1200">
+          <h2 className="absolute -right-9 top-[30%] animate-fallDown text-5xl text-primary-font-blue opacity-0 animation-delay-1200">
             name is
           </h2>
           <h1 className="absolute -right-20 top-[40%] animate-fallDown text-7xl text-primary-font-blue opacity-0 animation-delay-1300 xl:-right-32 xl:top-[45%] xl:text-8xl">

@@ -7,7 +7,10 @@ import Work from "../components/Work";
 
 export default function IndexPage() {
   return (
-    <div className="hide-scrollbar relative min-w-[650px] snap-y snap-mandatory overflow-x-hidden overflow-y-scroll">
+    <div
+      aria-hidden="true"
+      className="hide-scrollbar relative min-w-[650px] snap-y snap-mandatory overflow-x-hidden overflow-y-scroll"
+    >
       <Navbar />
       <main className="flex flex-col gap-24">
         <Home />
