@@ -1,4 +1,5 @@
 import { Helios } from "../components/Helios";
+import { LittleLemon } from "../components/LittleLemon";
 import { SkillIcons } from "../components/Skills";
 
 export const frontendProjects = [
@@ -27,7 +28,7 @@ export const frontendProjects = [
       SkillIcons.JavaScript,
       SkillIcons.StyledComponents,
     ],
-    component: Helios,
+    component: LittleLemon,
   },
   {
     title: "My Portfolio",

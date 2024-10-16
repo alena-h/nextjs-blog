@@ -1,6 +1,6 @@
 import { CarouselCustom } from "./Carousel";
 
-export const Helios = () => {
+export const LittleLemon = () => {
   const slides = [
     {
       src: "/images/image1.png",
@@ -39,12 +39,13 @@ export const Helios = () => {
     <article className="flex flex-col gap-12 px-8 lg:px-0">
       <div className="flex flex-col items-center gap-12">
         <h1 className="text-6xl font-bold text-primary-font-blue">
-          Helios Project
+          Little Lemon
         </h1>
         <p className="p-large">
-          Helios AI is an AI-driven platform for commodity traders and
-          agricultural buyers, offering real-time predictions on global
-          agricultural supply chain risks and price changes.
+          A family-owned Mediterranean restaurant with recipes passed down
+          through generations. They sought to enhance their online presence and
+          simplify table reservations with an app, making it easier for
+          customers to engage with their business online.
         </p>
       </div>
 
@@ -60,11 +61,9 @@ export const Helios = () => {
               <button className="action-button">Official Website</button>
             </a>
             <p className="p-large">
-              It tracks 150+ countries and 50+ commodities using climate data,
-              economic analysis, and machine learning models. The platform helps
-              users identify supply disruptions, anticipate price shifts, and
-              mitigate risks weeks in advance by analyzing billions of data
-              points daily
+              This project was part of the Meta Front-End Developer Professional
+              Certificate. You can check the design process <a href="">here</a>,
+              what folows is focused on the front-end implementation.
             </p>
           </div>
         </div>

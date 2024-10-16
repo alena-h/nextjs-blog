@@ -17,7 +17,7 @@ const WorkTabs = () => {
 
   return (
     <section id="portfolio" className="section">
-      <div className="mx-auto flex w-full max-w-7xl flex-col lg:px-8">
+      <div className="mx-auto flex w-full max-w-7xl flex-col p-4 lg:px-8">
         <h2 className="section-title">Portfolio</h2>
         <div className="flex space-x-4">
           <button

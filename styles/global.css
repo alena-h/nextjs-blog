@@ -7,7 +7,7 @@ body {
 }
 
 p {
-  @apply text-lg text-primary-font-blue;
+  @apply text-base leading-6 text-primary-font-blue md:text-[1.5rem] md:leading-[3rem];
 }
 
 li {
@@ -19,7 +19,7 @@ ul {
 }
 
 .p-large {
-  @apply pb-8 pt-8 text-[28px] leading-[45px];
+  @apply text-justify text-xl leading-8 md:pb-8 md:pt-8 md:text-left md:text-[1.5rem] md:leading-[3rem];
 }
 
 .nav-link {
@@ -27,11 +27,11 @@ ul {
 }
 
 .section {
-  @apply flex min-h-[calc(100vh-4rem)] snap-start justify-center overflow-y-auto overflow-x-hidden pb-32 pt-20;
+  @apply flex min-h-[calc(100vh-4rem)] snap-start justify-center overflow-y-auto overflow-x-hidden pt-20;
 }
 
 .container {
-  @apply mx-auto flex w-full max-w-7xl flex-col items-center;
+  @apply mx-auto flex w-full max-w-7xl flex-col items-center p-4;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -47,7 +47,7 @@ ul {
 }
 
 .project-title {
-  @apply text-left text-5xl font-bold text-secondary-font-pink;
+  @apply text-center text-5xl font-bold text-secondary-font-pink md:text-left;
 }
 
 .action-button {

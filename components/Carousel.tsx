@@ -4,7 +4,7 @@ import { Carousel, Typography } from "@material-tailwind/react";
 export function CarouselCustom({ slides }) {
   return (
     <Carousel
-      className="max-h-[600px] w-[calc(100%-8rem)] self-center overflow-visible"
+      className="max-h-[600px] w-[calc(100%-2rem)] self-center overflow-visible md:w-[calc(100%-8rem)]"
       loop={true}
       navigation={({ setActiveIndex, activeIndex, length }) => (
         <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">

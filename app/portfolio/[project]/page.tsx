@@ -7,8 +7,9 @@ import {
 export default function ProjectPage({ params }) {
   // Find the project in the data
   const allProjects = [...frontendProjects, ...uxProjects, ...otherProjects];
+  console.log(params.project);
   const project = allProjects.find(
-    (proj) => proj.title.toLowerCase() === params.project.toLowerCase(),
+    (proj) => proj.title.toLowerCase().replace(/\s+/g, "") === params.project,
   );
 
   // If project is not found, show an error or a fallback

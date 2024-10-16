@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <section id="home" className="section">
-      <div className="mx-auto flex h-[calc(100vh-4rem)] w-full max-w-7xl flex-col items-center justify-around gap-10 py-10 md:flex-row md:gap-20 lg:px-8">
+      <div className="mx-auto flex h-[calc(100vh-8rem)] w-full max-w-7xl flex-col items-center justify-around gap-10 md:flex-row md:gap-20 lg:px-8">
         <div id="left" className="relative">
           <img
             src="/portrait.png"
@@ -47,7 +47,7 @@ export default function Home() {
             <br /> FRONT-END DEVELOPER
             <br /> from Portugal.
           </h2>
-          <p className="text-lg text-primary-font-blue">
+          <p>
             ✨ passionate about design and UX <br />
             🐶 dog-lover and photography enthusiast
           </p>

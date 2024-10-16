@@ -26,7 +26,10 @@ const WorkCard = ({ title, image, technologies }) => {
   }, []);
 
   return (
-    <Link href={`/portfolio/${title.toLowerCase()}`} passHref>
+    <Link
+      href={`/portfolio/${title.toLowerCase().replace(/\s+/g, "")}`}
+      passHref
+    >
       <div
         ref={cardRef}
         className="work-card relative mb-4 min-h-48 w-full cursor-pointer overflow-hidden border md:aspect-square md:max-h-96"
