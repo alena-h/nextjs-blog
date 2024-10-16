@@ -7,7 +7,7 @@ export default function Home() {
   const handleDownload = () => {
     setIsDownloaded(true);
     setTimeout(() => {
-      window.open("/Alena-Hanchar-CV.pdf", "CV_alena_hanchar");
+      window.open("/Alena-Hanchar-cv-public.pdf", "CV_alena_hanchar");
     }, 700);
 
     setTimeout(() => {
