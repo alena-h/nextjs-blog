@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import { CarouselCustom } from "./Carousel";
 
 export const Helios = () => {
@@ -35,19 +36,43 @@ export const Helios = () => {
     },
   ];
 
+  const router = useRouter();
+
   return (
     <article className="flex flex-col gap-12 px-8 lg:px-0">
       <div className="flex flex-col items-center gap-12">
-        <h1 className="text-6xl font-bold text-primary-font-blue">
-          Helios Project
-        </h1>
+        <div className="flex w-full md:items-center md:gap-8">
+          <button
+            className="mt-2 flex h-12 w-12 items-center justify-center rounded bg-transparent hover:bg-primary-font-blue/5 active:bg-primary-font-blue/50"
+            type="button"
+            onClick={() => router.push("/#portfolio")}
+          >
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 289 498"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M247 42L42 248.5L247 455.5"
+                stroke="#EAF3F3"
+                strokeWidth="84"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <h1 className="pl-4 text-6xl font-bold text-primary-font-blue md:pl-14">
+            Helios
+          </h1>
+        </div>
         <p className="p-large">
           Helios AI is an AI-driven platform for commodity traders and
           agricultural buyers, offering real-time predictions on global
           agricultural supply chain risks and price changes.
         </p>
       </div>
-
       <div className="relative w-full overflow-visible">
         <div className="z-10 grid grid-cols-1 md:absolute md:grid-cols-2">
           <div className="flex flex-col justify-center gap-12">

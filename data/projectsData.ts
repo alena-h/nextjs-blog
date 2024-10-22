@@ -41,7 +41,7 @@ export const frontendProjects = [
       SkillIcons.Tailwind,
       SkillIcons.Git,
     ],
-    component: Helios,
+    component: null,
   },
   {
     title: "Project 4",
@@ -51,7 +51,7 @@ export const frontendProjects = [
       SkillIcons.Figma,
       SkillIcons.Photoshop,
     ],
-    component: Helios,
+    component: null,
   },
 ];
 export const uxProjects = [
@@ -64,13 +64,13 @@ export const uxProjects = [
       SkillIcons.Thunkable,
       SkillIcons.GoogleForms,
     ],
-    component: Helios,
+    component: null,
   },
   {
     title: "Druida - Dashboard",
     thumbnail: "/ux2.png",
     technologies: [SkillIcons.Figma],
-    component: Helios,
+    component: null,
   },
 ];
 
@@ -83,12 +83,12 @@ export const otherProjects = [
       SkillIcons.ClipStudioPaint,
       SkillIcons.Photoshop,
     ],
-    component: Helios,
+    component: null,
   },
   {
     title: "Photography",
     thumbnail: "/photo1.png",
     technologies: [SkillIcons.Photoshop, SkillIcons.Lightroom],
-    component: Helios,
+    component: null,
   },
 ];
