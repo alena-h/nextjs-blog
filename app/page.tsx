@@ -1,17 +1,28 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import IndexPage from "./index";
+import SocialPill from "../components/SocialPill";
 
 export default function Page() {
-  useEffect(() => {
-    const hash = window.location.hash;
+  const [showSocialPill, setShowSocialPill] = useState(true);
 
-    if (hash) {
-      const section = document.getElementById(hash.substring(1));
-      if (section) {
-        section.scrollIntoView();
+  useEffect(() => {
+    const handleVisibility = () => {
+      const currentHash = window.location.hash;
+      if (currentHash === "#contact") {
+        setShowSocialPill(false);
+      } else {
+        setShowSocialPill(true);
       }
-    }
+    };
+
+    handleVisibility();
+
+    window.addEventListener("hashchange", handleVisibility);
+
+    return () => {
+      window.removeEventListener("hashchange", handleVisibility);
+    };
   }, []);
 
   useEffect(() => {
@@ -33,16 +44,17 @@ export default function Page() {
       },
     );
 
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
+    sections.forEach((section) => observer.observe(section));
 
     return () => {
-      sections.forEach((section) => {
-        observer.unobserve(section);
-      });
+      sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
 
-  return <IndexPage />;
+  return (
+    <>
+      <IndexPage />
+      {showSocialPill && <SocialPill />}
+    </>
+  );
 }

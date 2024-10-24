@@ -7,14 +7,12 @@ import {
 } from "../../../data/projectsData";
 
 export default function ProjectPage({ params }) {
-  // Find the project in the data
   const allProjects = [...frontendProjects, ...uxProjects, ...otherProjects];
   console.log(params.project);
   const project = allProjects.find(
     (proj) => proj.title.toLowerCase().replace(/\s+/g, "") === params.project,
   );
 
-  // If project is not found, show an error or a fallback
   if (!project) {
     return <div>Project not found</div>;
   }
@@ -24,7 +22,7 @@ export default function ProjectPage({ params }) {
     <section id="project" className="section">
       <div className="mx-auto flex w-full max-w-7xl flex-col lg:px-8">
         {project.component ? (
-          <project.component /> // Render the custom component if it exists
+          <project.component />
         ) : (
           <article className="flex h-[calc(100vh-6rem)] flex-col items-center justify-center gap-8 px-8 lg:px-0">
             <button

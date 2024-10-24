@@ -49,7 +49,6 @@ export default function Experience() {
   const animationCompleteRef = useRef(false);
   const totalItems = experiences.length;
 
-  // Function to update the line height progressively
   const updateLineHeight = () => {
     if (containerRef.current) {
       const containerHeight = containerRef.current.offsetHeight;
@@ -58,20 +57,17 @@ export default function Experience() {
     }
   };
 
-  // Final height adjustment after everything is visible or on window resize
   const adjustFinalHeight = () => {
     if (containerRef.current) {
       const containerHeight = containerRef.current.offsetHeight;
-      setLineHeight(containerHeight); // Set the line to match the full container height
+      setLineHeight(containerHeight);
     }
   };
 
-  // Incrementally grow the line as items become visible
   useEffect(() => {
     updateLineHeight();
   }, [visibleItemsCount]);
 
-  // Adjust height on window resize
   useEffect(() => {
     window.addEventListener("resize", adjustFinalHeight);
     return () => {
@@ -87,7 +83,7 @@ export default function Experience() {
 
   return (
     <section id="experience" className="section">
-      <div className="container px-4 lg:px-20">
+      <div className="mx-auto flex h-fit w-full flex-col items-center justify-around gap-10 overflow-y-hidden px-4 lg:px-20">
         <h2 className="section-title">Experience</h2>
         <div ref={containerRef} className="relative">
           <motion.div
@@ -131,7 +127,7 @@ function ExperienceItem({
 
   useEffect(() => {
     if (inView) {
-      setVisibleItemsCount((prev) => prev + 1); // Directly update the count
+      setVisibleItemsCount((prev) => prev + 1);
     }
   }, [inView, setVisibleItemsCount]);
 
@@ -188,7 +184,7 @@ function ExperienceItem({
             height: inView ? "fit-content" : 0,
           }}
           transition={{ duration: 1.2, delay: 0.5 }}
-          onAnimationComplete={onComplete} // Call when animation is done
+          onAnimationComplete={onComplete}
           className="text mt-2 text-primary-font-blue"
         >
           {description}

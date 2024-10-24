@@ -7,8 +7,7 @@ import {
 } from "../../data/projectsData";
 
 export default function PortfolioPage() {
-  // Combine all projects if you want to display them together, or select one category
-  const projects = [...frontendProjects, ...uxProjects, ...otherProjects]; // Combine all projects
+  const projects = [...frontendProjects, ...uxProjects, ...otherProjects];
 
   return (
     <section className="section">

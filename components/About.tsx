@@ -15,9 +15,9 @@ export default function About() {
 
   return (
     <section id="about" className="section flex-col">
-      <div className="container">
+      <div className="mx-auto flex w-full flex-col p-4 px-8">
         <h2 className="section-title">About me</h2>
-        <p className="text text-justify lg:px-8">
+        <p className="text text-justify">
           Enthusiastic Frontend Developer with a background in nutrition
           science. As a former health professional, I understand the human
           brain, and how this knowledge translates into design, engagement, and
@@ -34,7 +34,7 @@ export default function About() {
           exciting and dynamic applications, currently diving into libraries
           like Three.js and GSAP. <br />
         </p>
-        <p className="text pt-6 text-center lg:px-8">
+        <p className="text pt-6 text-center">
           <b>
             Looking for a first job opportunity in the IT field to kickstart my
             career. <br />

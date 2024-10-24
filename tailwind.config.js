@@ -24,6 +24,12 @@ module.exports = {
         "tertiary-font-action-blue": "#2DA3AC",
       },
       keyframes: {
+        bounce: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "25%": { transform: "translateY(-30px)" },
+          "50%": { transform: "translateY(0px)" },
+          "75%": { transform: "translateY(30px)" },
+        },
         slideInLeft: {
           "0%": { transform: "translateX(-100%)" },
           "100%": { transform: "translateX(0)" },
@@ -62,6 +68,7 @@ module.exports = {
         },
       },
       animation: {
+        bounce: "bounce 0.6s ease-out",
         slideInLeft: "slideInLeft 1s ease-out",
         slideInRight: "slideInRight 1s ease-out forwards",
         fallDown: "fallDown 1s ease-out forwards",

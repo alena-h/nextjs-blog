@@ -17,23 +17,23 @@ export default function Home() {
 
   return (
     <section id="home" className="section">
-      <div className="mx-auto flex h-[calc(100vh-8rem)] w-full max-w-7xl flex-col items-center justify-around gap-10 md:flex-row md:gap-20 lg:px-8">
+      <div className="mx-auto flex h-fit w-full flex-col items-center justify-around gap-10 px-4 pb-[5%] pt-[10%] md:gap-14 md:px-8 lg:flex-row">
         <div id="left" className="relative">
           <img
             src="/me.png"
-            className="max-w-sm animate-slideInLeft rounded-full lg:max-w-md"
+            className="max-w-xs animate-slideInLeft rounded-full xl:max-w-md"
             alt="Portrait"
           />
-          <h2 className="absolute left-20 top-[10%] animate-fallDown text-6xl text-primary-font-blue opacity-0 animation-delay-1000">
+          <h2 className="absolute left-10 top-[5%] animate-fallDown text-6xl text-primary-font-blue opacity-0 animation-delay-1000">
             Hi,
           </h2>
-          <h2 className="absolute left-16 top-[30%] animate-fallDown text-5xl text-primary-font-blue opacity-0 animation-delay-1100">
+          <h2 className="absolute left-6 top-[25%] animate-fallDown text-5xl text-primary-font-blue opacity-0 animation-delay-1100">
             my
           </h2>
-          <h2 className="absolute -right-9 top-[30%] animate-fallDown text-5xl text-primary-font-blue opacity-0 animation-delay-1200">
+          <h2 className="absolute -right-9 top-[50%] animate-fallDown text-5xl text-primary-font-blue opacity-0 animation-delay-1200 xl:top-[45%]">
             name is
           </h2>
-          <h1 className="absolute -right-20 top-[40%] animate-fallDown text-7xl text-primary-font-blue opacity-0 animation-delay-1300 xl:-right-32 xl:top-[45%] xl:text-8xl">
+          <h1 className="absolute -right-20 top-[60%] animate-fallDown text-7xl text-primary-font-blue opacity-0 animation-delay-1300 xl:-right-32 xl:text-8xl">
             Alena<span className="text-8xl text-primary-font-blue">.</span>
           </h1>
         </div>
@@ -43,8 +43,7 @@ export default function Home() {
           className="flex animate-slideInRight flex-col items-center gap-8"
         >
           <h2 className="text-center text-4xl text-primary-font-blue">
-            I’m a dietitian turned
-            <br /> FRONT-END DEVELOPER
+            FRONT-END DEVELOPER
             <br /> from Portugal.
           </h2>
           <p>

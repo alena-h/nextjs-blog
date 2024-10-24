@@ -1,22 +1,21 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Link from "next/link"; // Import Link from Next.js
+import Link from "next/link";
 
 const WorkCard = ({ title, image, technologies }) => {
   const [hovered, setHovered] = useState(false);
-  const cardRef = useRef(null); // Reference for the card element
+  const cardRef = useRef(null);
 
   useEffect(() => {
     const handleMouseEnter = () => setHovered(true);
     const handleMouseLeave = () => setHovered(false);
 
-    const cardElement = cardRef.current; // Get the card element
+    const cardElement = cardRef.current;
     if (cardElement) {
       cardElement.addEventListener("mouseenter", handleMouseEnter);
       cardElement.addEventListener("mouseleave", handleMouseLeave);
     }
 
-    // Cleanup the event listeners when the component unmounts
     return () => {
       if (cardElement) {
         cardElement.removeEventListener("mouseenter", handleMouseEnter);

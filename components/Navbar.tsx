@@ -1,28 +1,7 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import useActiveSection from "../hooks/useActiveSection";
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState("");
-
-  useEffect(() => {
-    const sections = document.querySelectorAll("section");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            setActiveSection(id);
-          }
-        });
-      },
-      { threshold: 0.5 },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
-  }, []);
+  const activeSection = useActiveSection();
 
   return (
     <section className="fixed z-10 w-full bg-background-main">

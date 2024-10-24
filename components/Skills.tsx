@@ -27,11 +27,11 @@ export const SkillIcons = {
 export default function Skills() {
   return (
     <div>
-      <div className="container px-4 py-4 lg:px-8">
+      <div className="flex flex-col items-center px-4 py-4 lg:px-8">
         <h3 className="pb-4 text-2xl font-bold text-primary-font-blue">
           Skills
         </h3>
-        <div className="relative grid grid-cols-5 gap-6 md:grid-cols-7 lg:grid-cols-9 xl:grid-cols-10">
+        <div className="relative grid grid-cols-5 gap-6 md:grid-cols-5 lg:grid-cols-9 xl:grid-cols-10">
           {/* Convert the SkillIcons object into an array of entries and map over them */}
           {Object.entries(SkillIcons).map(([name, src], index) => (
             <div
