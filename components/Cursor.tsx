@@ -2,15 +2,13 @@
 import React, { useEffect, useState } from "react";
 
 export default function Cursor() {
-  const [cursorX, setCursorX] = useState(0);
-  const [cursorY, setCursorY] = useState(0);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const move = (e) => {
     const x = e.clientX || 0;
     const y = e.clientY || 0;
 
-    setCursorX(x);
-    setCursorY(y);
+    setPosition({ x, y });
   };
 
   useEffect(() => {
@@ -24,7 +22,9 @@ export default function Cursor() {
   return (
     <div
       className="cursor"
-      style={{ left: `${cursorX}px`, top: `${cursorY}px` }}
+      style={{
+        transform: `translate3d(${position.x - 300}px, ${position.y - 300}px, 0)`,
+      }}
     />
   );
 }

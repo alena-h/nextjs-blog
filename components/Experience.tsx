@@ -142,10 +142,10 @@ function ExperienceItem({
 
       <div className="ml-10">
         <motion.div
-          initial={{ opacity: 0 }}
-          className="bg-background-main pb-4"
-          animate={{ opacity: inView ? 1 : 0 }}
+          initial={{ opacity: 0, translateY: -20 }}
+          animate={{ opacity: inView ? 1 : 0, translateY: inView ? 0 : -20 }}
           transition={{ duration: 1.5 }}
+          className="bg-background-main pb-4"
         >
           {link !== "" ? (
             <a href={link} target="_blank" className="group">
@@ -177,12 +177,8 @@ function ExperienceItem({
           <p className="text-primary-font-blue">{date}</p>
         </motion.div>
         <motion.p
-          initial={{ opacity: 0, y: -50, height: 0 }}
-          animate={{
-            opacity: inView ? 1 : 0,
-            y: inView ? 0 : -50,
-            height: inView ? "fit-content" : 0,
-          }}
+          initial={{ opacity: 0, translateY: -20 }}
+          animate={{ opacity: inView ? 1 : 0, translateY: inView ? 0 : -20 }}
           transition={{ duration: 1.2, delay: 0.5 }}
           onAnimationComplete={onComplete}
           className="text mt-2 text-primary-font-blue"

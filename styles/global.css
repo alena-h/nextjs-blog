@@ -55,12 +55,12 @@ ul {
 }
 
 .cursor {
-  @apply pointer-events-none fixed inset-0 z-30 aspect-square w-[400] rounded-full bg-custom-gradient bg-blend-color-dodge mix-blend-color-dodge transition duration-300 lg:w-[600px];
-  transform: translate(-50%, -50%);
+  @apply pointer-events-none fixed inset-0 z-30 aspect-square w-[600px] rounded-full bg-custom-gradient bg-blend-color-dodge mix-blend-color-dodge transition duration-300;
+  transition: transform 0.1s ease-out;
 }
 
 .rocket {
-  @apply relative z-50 m-7 inline-block h-9 w-9 cursor-pointer;
+  @apply relative z-10 m-7 inline-block h-9 w-9 cursor-pointer;
   offset-path: path(
     "M18.3,18.3c0,0,19.8-73.6,84.7-73.2c89,0.4,120.5,149.7-29.5,149.7c-91,0-125.2-66.1-120-108.9L-800,-800"
   );

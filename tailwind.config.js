@@ -14,7 +14,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         "custom-gradient":
-          "radial-gradient(circle at center, rgba(81, 159, 165, 0.2), transparent 70%)",
+          "radial-gradient(circle at center, rgba(81, 159, 165, 0.3), transparent 70%)",
       },
       colors: {
         "background-main": "#1b2626",
