@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { CldImage } from "next-cloudinary";
 
 export default function Home() {
   const [isDownloaded, setIsDownloaded] = useState(false);
@@ -19,10 +20,19 @@ export default function Home() {
     <section id="home" className="section">
       <div className="mx-auto flex h-fit w-full flex-col items-center justify-around gap-10 px-4 pb-[5%] pt-[10%] md:gap-14 md:px-8 lg:flex-row">
         <div id="left" className="relative">
-          <img
-            src="/me.png"
-            className="max-w-xs animate-slideInLeft rounded-full xl:max-w-md"
-            alt="Portrait"
+          <CldImage
+            className="animate-slideInLeft rounded-full"
+            src="me_iodyke"
+            unoptimized={false}
+            format="webp"
+            priority
+            alt="example"
+            width="500"
+            height="500"
+            crop={{
+              type: "fill",
+              source: true,
+            }}
           />
           <h2 className="absolute left-10 top-[5%] animate-fallDown text-6xl text-primary-font-blue opacity-0 animation-delay-1000">
             Hi,

@@ -2,13 +2,11 @@
 /* eslint-disable */
 module.exports = {
   content: [
+    "./src/**/*.{js,ts,jsx,tsx,mdx}", // Adjust paths as per your project
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./**/@material-tailwind/**/*.{html,js,ts,jsx,tsx,mdx}",
-
-    // Or if using `src` directory:
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@material-tailwind/react/**/*.{html,js,ts,jsx,tsx,mdx}", // More specific path
   ],
   theme: {
     extend: {
@@ -31,11 +29,11 @@ module.exports = {
           "75%": { transform: "translateY(30px)" },
         },
         slideInLeft: {
-          "0%": { transform: "translateX(-100%)" },
+          "0%": { transform: "translateX(-500px)" },
           "100%": { transform: "translateX(0)" },
         },
         slideInRight: {
-          "0%": { transform: "translateX(100%)" },
+          "0%": { transform: "translateX(500px)" },
           "100%": { transform: "translateX(0)" },
         },
         fallDown: {
