@@ -9,6 +9,13 @@ import {
   FaMailBulk,
 } from "react-icons/fa";
 
+export const NavLinks = [
+  { id: 2, label: "experience", href: "#experience" },
+  { id: 3, label: "portfolio", href: "#portfolio" },
+  { id: 4, label: "about", href: "#about" },
+  { id: 5, label: "contact", href: "#contact" },
+];
+
 type SocialLink = {
   label: string;
   url: string;

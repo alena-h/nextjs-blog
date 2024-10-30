@@ -7,7 +7,7 @@ body {
 }
 
 p {
-  @apply text-base leading-6 text-primary-font-blue md:text-[1.5rem] md:leading-[3rem];
+  @apply text-xl leading-6 text-primary-font-blue md:text-[1.5rem] md:leading-[3rem];
 }
 
 li {

@@ -18,43 +18,45 @@ export default function Home() {
 
   return (
     <section id="home" className="section">
-      <div className="mx-auto flex h-fit w-full flex-col items-center justify-around gap-10 px-4 pb-[5%] pt-[10%] md:gap-14 md:px-8 lg:flex-row">
+      <div className="mx-auto flex h-fit w-full flex-col items-center justify-around gap-10 px-8 pb-[5%] pt-[10%] md:gap-14 md:px-8 lg:flex-row">
         <div id="left" className="relative">
-          <CldImage
-            priority
-            className="animate-slideInLeft rounded-full"
-            src="me_iodyke"
-            alt="example"
-            width="500"
-            height="500"
-            crop={{
-              type: "fill",
-              source: true,
-            }}
-          />
-          <h2 className="absolute left-10 top-[5%] animate-fallDown text-6xl text-primary-font-blue opacity-0 animation-delay-1000">
-            Hi,
-          </h2>
-          <h2 className="absolute left-6 top-[25%] animate-fallDown text-5xl text-primary-font-blue opacity-0 animation-delay-1100">
-            my
-          </h2>
-          <h2 className="absolute -right-9 top-[50%] animate-fallDown text-5xl text-primary-font-blue opacity-0 animation-delay-1200 xl:top-[45%]">
-            name is
-          </h2>
-          <h1 className="absolute -right-20 top-[60%] animate-fallDown text-7xl text-primary-font-blue opacity-0 animation-delay-1300 xl:-right-32 xl:text-8xl">
-            Alena<span className="text-8xl text-primary-font-blue">.</span>
-          </h1>
+          <div className="relative m-auto h-[40%] w-3/4">
+            <CldImage
+              priority
+              className="animate-slideInLeft rounded-full"
+              src="me_iodyke"
+              alt="example"
+              width={500}
+              height={500}
+              crop={{
+                type: "fill",
+                source: true,
+              }}
+            />
+            <h2 className="absolute -left-[2%] top-[15%] animate-fallDown text-5xl text-primary-font-blue opacity-0 animation-delay-1000 md:text-6xl">
+              Hi,
+            </h2>
+            <h2 className="absolute -left-[2%] top-[35%] animate-fallDown text-4xl text-primary-font-blue opacity-0 animation-delay-1100 md:text-5xl">
+              my
+            </h2>
+            <h2 className="absolute -right-[5%] bottom-[30%] animate-fallDown text-4xl text-primary-font-blue opacity-0 animation-delay-1200 md:text-5xl">
+              name is
+            </h2>
+            <h1 className="absolute -right-[5%] bottom-[10%] animate-fallDown text-5xl text-primary-font-blue opacity-0 animation-delay-1300 md:-right-20 md:top-[60%] md:text-7xl xl:-right-32 xl:text-8xl">
+              Alena<span className="text-8xl text-primary-font-blue">.</span>
+            </h1>
+          </div>
         </div>
 
         <div
           id="right"
           className="flex animate-slideInRight flex-col items-center gap-8"
         >
-          <h2 className="text-center text-4xl text-primary-font-blue">
+          <h2 className="text-center text-3xl text-primary-font-blue md:text-4xl">
             FRONT-END DEVELOPER
             <br /> from Portugal.
           </h2>
-          <p>
+          <p className="text-center">
             ✨ passionate about design and UX <br />
             🐶 dog-lover and photography enthusiast
           </p>

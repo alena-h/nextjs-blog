@@ -37,7 +37,7 @@ export default function Contacts() {
                   href={label === "Email" ? `mailto:${url}` : url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative overflow-hidden text-ellipsis whitespace-nowrap text-base leading-6 text-primary-font-blue hover:underline md:text-[1.5rem] md:leading-[3rem]"
+                  className="relative overflow-hidden text-ellipsis whitespace-nowrap text-base leading-6 text-primary-font-blue hover:underline md:w-full md:text-[1.5rem] md:leading-[3rem]"
                   onMouseEnter={() => handleMouseEnter(url, key)}
                   onMouseLeave={handleMouseLeave}
                 >
