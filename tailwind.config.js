@@ -2,11 +2,11 @@
 /* eslint-disable */
 module.exports = {
   content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}", // Adjust paths as per your project
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@material-tailwind/react/**/*.{html,js,ts,jsx,tsx,mdx}", // More specific path
+    "./node_modules/@material-tailwind/react/**/*.{html,js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {

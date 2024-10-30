@@ -1,97 +1,40 @@
 "use client";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { experiences } from "../data/projectsData";
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-
-const experiences = [
-  {
-    date: "2024 Jan – present",
-    title: "Junior Frontend Developer at Helios",
-    link: "https://www.helios.sc/",
-    description:
-      "Successfully contributed to migrating a Vue.js project to React.js with Next.js, crafting efficient, reusable components using Styled Components and TypeScript. Played an active role in feature development, UX enhancements, and UI/UX design. Also maintained a streamlined component library in Storybook for efficient development and testing.",
-  },
-  {
-    date: "2021 Jul – present",
-    title: "Freelance Illustrator",
-    link: "https://www.instagram.com/yunique.pawtrait/",
-    description:
-      "This is my creative outlet and a hobby that evolved into a side project. I primarily create pet portraits but also enjoy experimenting with different mediums and subjects.",
-  },
-  {
-    date: "2019 - 2022",
-    title:
-      "Freelance Nutritionist at various wellness clinics, online consultations, and a football sports club",
-    link: "",
-    description:
-      "Managed clients and provided personalized nutrition plans. Conducted body composition measurements and progress tracking. Created email newsletters on nutrition and health.",
-  },
-  {
-    date: "2018 Jan - 2018 Jul",
-    title: "Intern at ISPUP (Institute of Public Health University of Porto)",
-    link: "https://ispup.up.pt/",
-    description:
-      "Conducted health interviews and collected data for epidemiological research. Cleaned and organized data.",
-  },
-  {
-    date: "2017 Mar - 2017 Jul",
-    title: "Intern at ITAU (food catering company)",
-    link: "https://www.itau.pt/",
-    description:
-      "Menu Planing, internal audit for food quality and safety. Bachelor's thesis project on food waste and organization of an awareness campaign on the topic in a hospital unit.",
-  },
-];
 
 export default function Experience() {
-  const [visibleItemsCount, setVisibleItemsCount] = useState(0);
-  const containerRef = useRef(null);
-  const [lineHeight, setLineHeight] = useState(0);
-  const animationCompleteRef = useRef(false);
-  const totalItems = experiences.length;
-
-  const updateLineHeight = () => {
-    if (containerRef.current) {
-      const containerHeight = containerRef.current.offsetHeight;
-      const newHeight = (visibleItemsCount / totalItems) * containerHeight;
-      setLineHeight(newHeight);
-    }
-  };
-
-  const adjustFinalHeight = () => {
-    if (containerRef.current) {
-      const containerHeight = containerRef.current.offsetHeight;
-      setLineHeight(containerHeight);
-    }
-  };
+  const lineRef = useRef<HTMLDivElement>(null);
+  const [lineScale, setLineScale] = useState(0);
+  const { scrollYProgress } = useScroll({
+    target: lineRef,
+    offset: ["0 0.5", "end end"],
+  });
 
   useEffect(() => {
-    updateLineHeight();
-  }, [visibleItemsCount]);
+    const unsubscribe = scrollYProgress.on("change", (value) => {
+      setLineScale(value >= 1 ? 1 : value);
+    });
 
-  useEffect(() => {
-    window.addEventListener("resize", adjustFinalHeight);
     return () => {
-      window.removeEventListener("resize", adjustFinalHeight);
+      unsubscribe();
     };
-  }, []);
-
-  useEffect(() => {
-    if (animationCompleteRef.current) {
-      updateLineHeight();
-    }
-  }, [visibleItemsCount]);
+  }, [scrollYProgress]);
 
   return (
     <section id="experience" className="section">
       <div className="mx-auto flex h-fit w-full flex-col items-center justify-around gap-10 overflow-y-hidden px-4 lg:px-20">
         <h2 className="section-title">Experience</h2>
-        <div ref={containerRef} className="relative">
+        <div ref={lineRef} className="relative h-full">
           <motion.div
-            className="absolute left-2 w-0.5 bg-tertiary-font-action-blue shadow-[0_0_10px_1px_rgba(45,163,172)]"
-            initial={{ height: 0 }}
-            animate={{ height: lineHeight }}
+            className="absolute left-2 h-full w-0.5 bg-tertiary-font-action-blue shadow-[0_0_10px_1px_rgba(45,163,172)]"
+            style={{
+              scaleY: lineScale,
+              transformOrigin: "top",
+            }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
           ></motion.div>
+
           {experiences.map((exp, index) => (
             <ExperienceItem
               key={index}
@@ -99,11 +42,6 @@ export default function Experience() {
               title={exp.title}
               link={exp.link}
               description={exp.description}
-              setVisibleItemsCount={setVisibleItemsCount}
-              onComplete={() => {
-                animationCompleteRef.current = true;
-                updateLineHeight();
-              }}
             />
           ))}
         </div>
@@ -112,60 +50,43 @@ export default function Experience() {
   );
 }
 
-function ExperienceItem({
-  date,
-  title,
-  link,
-  description,
-  setVisibleItemsCount,
-  onComplete,
-}) {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
+function ExperienceItem({ date, title, link, description }) {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "center start"],
   });
 
-  useEffect(() => {
-    if (inView) {
-      setVisibleItemsCount((prev) => prev + 1);
-    }
-  }, [inView, setVisibleItemsCount]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  const translateY = useTransform(scrollYProgress, [0, 0.5], [20, 0]);
 
   return (
     <div ref={ref} className="relative flex flex-row py-10">
       <motion.span
         initial={{ scale: 0 }}
-        animate={{ scale: inView ? 1 : 0 }}
-        transition={{ duration: 1 }}
+        style={{ scale: opacity }}
+        transition={{ duration: 0.5 }}
         className="absolute top-14 ml-[0.4rem] h-1.5 w-1.5 rounded-full bg-tertiary-font-action-blue shadow-[0_0_15px_10px_rgba(45,163,172)]"
       ></motion.span>
 
       <div className="ml-10">
         <motion.div
-          initial={{ opacity: 0, translateY: -20 }}
-          animate={{ opacity: inView ? 1 : 0, translateY: inView ? 0 : -20 }}
-          transition={{ duration: 1.5 }}
+          style={{
+            opacity: opacity,
+            translateY: translateY,
+          }}
+          transition={{ duration: 0.5 }}
           className="bg-background-main pb-4"
         >
-          {link !== "" ? (
-            <a href={link} target="_blank" className="group">
+          {link ? (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group"
+            >
               <h3 className="flex flex-nowrap items-center gap-1 text-xl font-semibold text-tertiary-font-action-blue hover:underline">
                 {title}
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 60 60"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="ease stroke-[#519FA5] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                >
-                  <path
-                    d="M32 3.43506H49M49 3.43506V20.4351M49 3.43506L26.5 25.4351M19 3.43506H11C6.58172 3.43506 3 7.01678 3 11.4351V41.4351C3 45.8533 6.58172 49.4351 11 49.4351H41C45.4183 49.4351 49 45.8533 49 41.4351V33.5"
-                    strokeWidth="6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
               </h3>
             </a>
           ) : (
@@ -173,14 +94,14 @@ function ExperienceItem({
               {title}
             </h3>
           )}
-
           <p className="text-primary-font-blue">{date}</p>
         </motion.div>
         <motion.p
-          initial={{ opacity: 0, translateY: -20 }}
-          animate={{ opacity: inView ? 1 : 0, translateY: inView ? 0 : -20 }}
-          transition={{ duration: 1.2, delay: 0.5 }}
-          onAnimationComplete={onComplete}
+          style={{
+            opacity: opacity,
+            translateY: translateY,
+          }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="text mt-2 text-primary-font-blue"
         >
           {description}

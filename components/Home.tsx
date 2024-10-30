@@ -21,11 +21,9 @@ export default function Home() {
       <div className="mx-auto flex h-fit w-full flex-col items-center justify-around gap-10 px-4 pb-[5%] pt-[10%] md:gap-14 md:px-8 lg:flex-row">
         <div id="left" className="relative">
           <CldImage
+            priority
             className="animate-slideInLeft rounded-full"
             src="me_iodyke"
-            unoptimized={false}
-            format="webp"
-            priority
             alt="example"
             width="500"
             height="500"
