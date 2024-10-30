@@ -1,25 +1,17 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { experiences } from "../data/projectsData";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 export default function Experience() {
   const lineRef = useRef<HTMLDivElement>(null);
-  const [lineScale, setLineScale] = useState(0);
+
   const { scrollYProgress } = useScroll({
     target: lineRef,
     offset: ["0 0.5", "end end"],
   });
 
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (value) => {
-      setLineScale(value >= 1 ? 1 : value);
-    });
-
-    return () => {
-      unsubscribe();
-    };
-  }, [scrollYProgress]);
+  const lineScaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
     <section id="experience" className="section">
@@ -29,7 +21,7 @@ export default function Experience() {
           <motion.div
             className="absolute left-2 h-full w-0.5 bg-tertiary-font-action-blue shadow-[0_0_10px_1px_rgba(45,163,172)]"
             style={{
-              scaleY: lineScale,
+              scaleY: lineScaleY,
               transformOrigin: "top",
             }}
             transition={{ duration: 0.8, ease: "easeInOut" }}

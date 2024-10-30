@@ -8,7 +8,6 @@ import {
 
 export default function ProjectPage({ params }) {
   const allProjects = [...frontendProjects, ...uxProjects, ...otherProjects];
-  console.log(params.project);
   const project = allProjects.find(
     (proj) => proj.title.toLowerCase().replace(/\s+/g, "") === params.project,
   );

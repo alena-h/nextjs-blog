@@ -1,5 +1,52 @@
 import { Helios } from "../components/Helios";
 import { LittleLemon } from "../components/LittleLemon";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaCodepen,
+  FaInstagram,
+  FaBehance,
+  FaMailBulk,
+} from "react-icons/fa";
+
+type SocialLink = {
+  label: string;
+  url: string;
+  icon: React.ElementType;
+};
+
+export const SocialLinks: Record<string, SocialLink> = {
+  GitHub: {
+    label: "GitHub",
+    url: "https://github.com/alena-h",
+    icon: FaGithub,
+  },
+  LinkedIn: {
+    label: "LinkedIn",
+    url: "https://www.linkedin.com/in/alena-hanchar/",
+    icon: FaLinkedin,
+  },
+  CodePen: {
+    label: "CodePen",
+    url: "https://codepen.io/Lena-Hanchar",
+    icon: FaCodepen,
+  },
+  Instagram: {
+    label: "Instagram",
+    url: "https://www.instagram.com/shir0hana",
+    icon: FaInstagram,
+  },
+  Behance: {
+    label: "Behance",
+    url: "https://www.behance.net/lenahanchar",
+    icon: FaBehance,
+  },
+  Email: {
+    label: "Email",
+    url: "lena.h102@gmail.com",
+    icon: FaMailBulk,
+  },
+};
 
 export const SkillIcons = {
   CSS3: "css3_mbaxl2",

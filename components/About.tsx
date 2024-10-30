@@ -1,17 +1,43 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Skills from "./Skills";
+import Tooltip from "./Tooltip";
 
 export default function About() {
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const rocketRef = useRef(null);
 
   const handleClick = () => {
     setIsAnimating(true);
-
+    setShowTooltip(false);
     setTimeout(() => {
       setIsAnimating(false);
     }, 2000);
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        } else {
+          setIsInView(false);
+        }
+      });
+    });
+
+    if (rocketRef.current) {
+      observer.observe(rocketRef.current);
+    }
+
+    return () => {
+      if (rocketRef.current) {
+        observer.unobserve(rocketRef.current);
+      }
+    };
+  }, []);
 
   return (
     <section id="about" className="section flex-col">
@@ -38,11 +64,22 @@ export default function About() {
           <b>
             Looking for a first job opportunity in the IT field to kickstart my
             career. <br />
-            <img
-              src="/images/rocket.png"
-              className={`rocket ${isAnimating ? "animate-fly" : "rocket-hover"}`}
+            <span
+              ref={rocketRef}
+              className={`rocket ${isAnimating ? "animate-fly" : isInView ? "animate-wiggle" : "rocket-hover"}`}
+              style={{ transition: "transform 0.3s ease" }}
               onClick={handleClick}
-            />
+              onMouseEnter={() => setShowTooltip(true)}
+              onMouseLeave={() => setShowTooltip(false)}
+            >
+              <img src="/images/rocket.png" alt="Rocket" />
+            </span>
+            {showTooltip && (
+              <Tooltip
+                text="Click!"
+                style={{ transform: "translateY(-120px) translateX(-50%)" }}
+              />
+            )}
           </b>
         </p>
       </div>

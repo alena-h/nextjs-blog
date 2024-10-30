@@ -1,12 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaCodepen,
-  FaInstagram,
-  FaBehance,
-} from "react-icons/fa";
+import { SocialLinks } from "../data/projectsData";
 import useActiveSection from "../hooks/useActiveSection";
 
 export default function SocialPill() {
@@ -56,46 +50,17 @@ export default function SocialPill() {
         opacity: opacity,
       }}
     >
-      <a
-        href="https://github.com/alena-h"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="transform transition-all duration-300 hover:scale-125"
-      >
-        <FaGithub className="text-2xl text-primary-font-blue" />
-      </a>
-      <a
-        href="https://www.linkedin.com/in/alena-hanchar/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="transform transition-all duration-300 hover:scale-125"
-      >
-        <FaLinkedin className="text-2xl text-primary-font-blue" />
-      </a>
-      <a
-        href="https://codepen.io/Lena-Hanchar"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="transform transition-all duration-300 hover:scale-125"
-      >
-        <FaCodepen className="text-2xl text-primary-font-blue" />
-      </a>
-      <a
-        href="https://www.instagram.com/shir0hana"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="transform transition-all duration-300 hover:scale-125"
-      >
-        <FaInstagram className="text-2xl text-primary-font-blue" />
-      </a>
-      <a
-        href="https://www.behance.net/lenahanchar"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="transform transition-all duration-300 hover:scale-125"
-      >
-        <FaBehance className="text-2xl text-primary-font-blue" />
-      </a>
+      {Object.entries(SocialLinks).map(([key, { url, icon: Icon }]) => (
+        <a
+          key={key}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transform transition-all duration-300 hover:scale-125"
+        >
+          <Icon className="text-2xl text-primary-font-blue" />
+        </a>
+      ))}
     </div>
   );
 }

@@ -4,7 +4,9 @@ export default function useActiveSection() {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll(
+      "main > section",
+    ) as NodeListOf<HTMLElement>;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -15,13 +17,19 @@ export default function useActiveSection() {
           }
         });
       },
-      { threshold: 0.5 },
+      {
+        rootMargin: "-50% 0px -50% 0px",
+      },
     );
 
     sections.forEach((section) => observer.observe(section));
 
-    return () => observer.disconnect();
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
   }, []);
+
+  useEffect(() => {}, [activeSection]);
 
   return activeSection;
 }

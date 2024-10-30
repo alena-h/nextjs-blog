@@ -70,7 +70,7 @@ module.exports = {
         slideInLeft: "slideInLeft 1s ease-out",
         slideInRight: "slideInRight 1s ease-out forwards",
         fallDown: "fallDown 1s ease-out forwards",
-        wiggle: "wiggle 0.5s ease-in-out 2",
+        wiggle: "wiggle 0.3s ease-in-out 3",
         fly: "fly 2s ease-in-out",
       },
     },
