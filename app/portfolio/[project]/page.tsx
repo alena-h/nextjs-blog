@@ -23,7 +23,7 @@ export default function ProjectPage({ params }) {
         {project.component ? (
           <project.component />
         ) : (
-          <article className="flex h-[calc(100vh-6rem)] flex-col items-center justify-center gap-8 px-8 lg:px-0">
+          <article className="flex h-[calc(100vh-6rem)] flex-col items-center justify-start gap-8 px-8 lg:px-0">
             <button
               className="mt-2 flex h-12 w-12 items-center justify-center self-start rounded bg-transparent hover:bg-primary-font-blue/5 active:bg-primary-font-blue/50"
               type="button"

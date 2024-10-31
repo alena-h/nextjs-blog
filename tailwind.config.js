@@ -10,6 +10,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        xxs: "320px",
+        xs: "372px",
+      },
+
       backgroundImage: {
         "custom-gradient":
           "radial-gradient(circle at center, rgba(81, 159, 165, 0.3), transparent 70%)",

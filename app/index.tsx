@@ -22,7 +22,7 @@ export default function IndexPage() {
       className="hide-scrollbar relative snap-y snap-mandatory overflow-x-hidden overflow-y-scroll"
     >
       <Navbar />
-      <main className="mx-auto flex max-w-7xl flex-col gap-24">
+      <main className="mx-auto flex max-w-7xl flex-col">
         <Home />
         <Experience />
         <Work />

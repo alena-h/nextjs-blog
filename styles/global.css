@@ -23,11 +23,15 @@ ul {
 }
 
 .nav-link {
-  @apply text-lg font-semibold hover:text-tertiary-font-action-blue active:text-secondary-font-pink;
+  @apply text-xl font-semibold hover:text-tertiary-font-action-blue active:text-secondary-font-pink;
+}
+
+.nav-link-sm {
+  @apply text-2xl font-semibold hover:text-tertiary-font-action-blue active:text-secondary-font-pink;
 }
 
 .section {
-  @apply flex snap-start justify-center overflow-y-auto overflow-x-hidden pt-20;
+  @apply flex snap-start justify-center overflow-y-auto overflow-x-hidden py-10 md:py-20;
 }
 
 .container {
@@ -51,7 +55,7 @@ ul {
 }
 
 .action-button {
-  @apply relative flex h-12 w-full min-w-52 max-w-[calc(100%-3rem)] flex-row items-center justify-center gap-2 text-nowrap rounded-lg bg-tertiary-font-action-blue py-2 font-semibold text-primary-font-blue shadow-lg shadow-white/25 hover:bg-tertiary-font-action-blue/90;
+  @apply relative flex h-12 w-full min-w-52 max-w-96 flex-row items-center justify-center gap-2 text-nowrap rounded-lg bg-tertiary-font-action-blue py-2 font-semibold text-primary-font-blue shadow-lg shadow-white/25 hover:bg-tertiary-font-action-blue/90;
 }
 
 .cursor {
@@ -60,7 +64,7 @@ ul {
 }
 
 .rocket {
-  @apply relative z-10 m-7 inline-block h-9 w-9 cursor-pointer;
+  @apply z-10 m-7 block h-9 w-9 cursor-pointer items-center;
   offset-path: path(
     "M18.3,18.3c0,0,19.8-73.6,84.7-73.2c89,0.4,120.5,149.7-29.5,149.7c-91,0-125.2-66.1-120-108.9L-800,-800"
   );

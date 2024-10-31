@@ -18,7 +18,7 @@ const WorkTabs = () => {
     <section id="portfolio" className="section">
       <div className="mx-auto flex w-full flex-col p-4 lg:px-8">
         <h2 className="section-title">Portfolio</h2>
-        <div className="flex space-x-4">
+        <div className="flex md:space-x-4">
           <button
             className={`tab-button ${activeTab === "frontend" ? "active" : ""}`}
             onClick={() => handleTabClick("frontend")}
@@ -38,7 +38,7 @@ const WorkTabs = () => {
             Others
           </button>
         </div>
-        <div className="gap-6 rounded-lg rounded-tl-none border-2 border-tertiary-font-action-blue p-8 shadow-[0_0_10px_1px_rgba(45,163,172)]">
+        <div className="xs:rounded-tr-lg gap-6 rounded-lg rounded-tl-none rounded-tr-none border-2 border-tertiary-font-action-blue p-6 shadow-[0_0_10px_1px_rgba(45,163,172)]">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {activeTab === "frontend" &&
               frontendProjects.map((project, index) => (

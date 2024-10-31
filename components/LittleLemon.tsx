@@ -43,7 +43,7 @@ export const LittleLemon = () => {
         <div className="z-10 grid grid-cols-1 md:absolute md:grid-cols-2">
           <div className="flex flex-col justify-center gap-12">
             <a
-              className="flex w-80 justify-center self-center md:justify-start md:self-auto"
+              className="flex w-full justify-center self-center md:justify-start md:self-auto"
               href="https://codesandbox.io/p/sandbox/p2mj7j"
               target="_blank"
               rel="noopener noreferrer"
@@ -99,42 +99,42 @@ export const LittleLemon = () => {
           <img
             src="/images/react.png"
             alt="react"
-            className="col-span-1 row-start-2 max-w-36 place-self-center md:row-start-auto"
+            className="col-span-1 row-start-2 place-self-center md:row-start-auto md:max-w-36"
           />
           <img
             src="/images/bootstrap.png"
             alt="bootstrap"
-            className="col-span-1 row-start-2 max-w-36 place-self-center md:row-start-auto md:place-self-end"
+            className="col-span-1 row-start-2 place-self-center md:row-start-auto md:max-w-36 md:place-self-end"
           />
           <img
             src="/images/figma.png"
             alt="figma"
-            className="col-span-1 row-start-2 max-w-36 place-self-center md:row-start-auto"
+            className="col-span-1 row-start-2 place-self-center md:row-start-auto md:max-w-36"
           />
         </div>
       </div>
       <h2 className="project-title">Final Project</h2>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-        <div className="col-span-1 grid content-around md:col-span-2">
-          <p className="p-large col-span-1 md:col-span-2">
+      <div className="flex flex-col items-center gap-8 md:grid md:grid-cols-3">
+        <div className="flex flex-col content-around items-center gap-8 place-self-center md:col-span-2 md:grid">
+          <p className="p-large md:col-span-2">
             Build a static version of an responsive application—applying React,
             frameworks, routing, hooks, bundlers and data fetching.
           </p>
           <a
-            className="flex w-80 justify-center self-center md:justify-start md:self-auto"
+            className="flex w-full justify-center md:justify-start md:self-auto"
             href="https://github.com/alena-h/little-lemon-booking"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className="action-button">Code</button>
+            <button className="action-button w-[calc(100%-3rem)]">Code</button>
           </a>
           <a
-            className="flex w-80 justify-center self-center md:justify-start md:self-auto"
+            className="flex w-full justify-center md:justify-start md:self-auto"
             href="https://codesandbox.io/p/sandbox/p2mj7j"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className="action-button">Demo</button>
+            <button className="action-button w-[calc(100%-3rem)]">Demo</button>
           </a>
         </div>
         <img

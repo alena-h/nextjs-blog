@@ -17,10 +17,10 @@ export default function Home() {
   };
 
   return (
-    <section id="home" className="section">
-      <div className="mx-auto flex h-fit w-full flex-col items-center justify-around gap-10 px-8 pb-[5%] pt-[10%] md:gap-14 md:px-8 lg:flex-row">
-        <div id="left" className="relative">
-          <div className="relative m-auto h-[40%] w-3/4">
+    <section id="home" className="section h-screen">
+      <div className="mx-auto flex h-full w-full flex-col items-center justify-around px-8 py-5 md:px-8 lg:flex-row lg:py-0">
+        <div id="left" className="relative h-[60%] lg:h-auto">
+          <div className="relative mx-auto flex h-full w-[80%] items-center justify-center lg:ml-[2%] lg:mr-auto">
             <CldImage
               priority
               className="animate-slideInLeft rounded-full"
@@ -42,7 +42,7 @@ export default function Home() {
             <h2 className="absolute -right-[5%] bottom-[30%] animate-fallDown text-4xl text-primary-font-blue opacity-0 animation-delay-1200 md:text-5xl">
               name is
             </h2>
-            <h1 className="absolute -right-[5%] bottom-[10%] animate-fallDown text-5xl text-primary-font-blue opacity-0 animation-delay-1300 md:-right-20 md:top-[60%] md:text-7xl xl:-right-32 xl:text-8xl">
+            <h1 className="absolute -right-[10%] bottom-[10%] animate-fallDown text-5xl text-primary-font-blue opacity-0 animation-delay-1300 md:text-7xl xl:text-8xl">
               Alena<span className="text-8xl text-primary-font-blue">.</span>
             </h1>
           </div>
@@ -50,13 +50,13 @@ export default function Home() {
 
         <div
           id="right"
-          className="flex animate-slideInRight flex-col items-center gap-8"
+          className="flex animate-slideInRight flex-col items-center justify-evenly"
         >
           <h2 className="text-center text-3xl text-primary-font-blue md:text-4xl">
             FRONT-END DEVELOPER
             <br /> from Portugal.
           </h2>
-          <p className="text-center">
+          <p className="py-8 text-center">
             ✨ passionate about design and UX <br />
             🐶 dog-lover and photography enthusiast
           </p>

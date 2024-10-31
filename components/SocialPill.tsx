@@ -19,9 +19,9 @@ export default function SocialPill() {
       const scrollDiff = currentScrollY - lastScrollY;
 
       if (scrollDiff > 0) {
-        setTranslateY(50);
+        setTranslateY(10);
       } else if (scrollDiff < 0) {
-        setTranslateY(-50);
+        setTranslateY(-10);
       }
 
       lastScrollY = currentScrollY;
@@ -29,13 +29,12 @@ export default function SocialPill() {
       clearTimeout(scrollTimeoutRef.current);
       scrollTimeoutRef.current = setTimeout(() => {
         setTranslateY(0);
-      }, 300);
+      }, 250);
     };
 
     window.addEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle clicks outside of the pill to close it
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (pillRef.current && !pillRef.current.contains(event.target as Node)) {
@@ -49,9 +48,8 @@ export default function SocialPill() {
     };
   }, []);
 
-  const toggleExpand = () => {
+  const handleClick = () => {
     if (activeSection === "contact") {
-      // Scroll to the top if in the contact section
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       setIsExpanded((prev) => !prev);
@@ -89,8 +87,8 @@ export default function SocialPill() {
           </div>
         )}
         <button
-          onClick={toggleExpand}
-          className="flex h-12 w-12 transform items-center justify-center rounded-full bg-tertiary-font-action-blue text-primary-font-blue transition-transform duration-300 hover:scale-110"
+          onClick={handleClick}
+          className="flex h-14 w-14 transform items-center justify-center rounded-full bg-secondary-font-pink text-primary-font-blue transition-transform duration-300 hover:scale-110"
         >
           {activeSection === "contact" ? (
             <svg
@@ -104,7 +102,7 @@ export default function SocialPill() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M12 4v16m-8-8h16"
+                d="M5 15l7-7 7 7"
               />
             </svg>
           ) : isExpanded ? (
@@ -143,9 +141,9 @@ export default function SocialPill() {
 
       {/* Pill for medium and large screens */}
       <div
-        className="fixed left-2 top-1/3 z-50 hidden flex-col items-center space-y-6 rounded-full bg-background-main/50 p-2 shadow-lg transition-all duration-300 ease-in-out lg:flex"
+        className="fixed bottom-4 left-1/2 z-50 hidden flex-row items-center space-x-6 rounded-full bg-background-main/50 p-2 shadow-lg transition-all duration-150 ease-in-out lg:flex"
         style={{
-          transform: `translateY(${translateY}px)`,
+          transform: `translateX(-50%) translateY(${translateY}px)`,
           opacity: opacity,
         }}
       >

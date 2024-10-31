@@ -32,7 +32,7 @@ const WorkCard = ({ title, image, technologies }) => {
     >
       <div
         ref={cardRef}
-        className="work-card relative mb-4 min-h-48 w-full cursor-pointer overflow-hidden border md:aspect-square md:max-h-96"
+        className="work-card relative mb-4 h-72 w-full cursor-pointer overflow-hidden border md:aspect-square md:h-96"
       >
         <CldImage
           priority
@@ -45,38 +45,40 @@ const WorkCard = ({ title, image, technologies }) => {
           }`}
         />
         <div
-          className={`z-5 relative flex h-full flex-col items-center justify-between p-4 transition ${
+          className={`z-5 relative flex h-full flex-col items-center justify-between transition ${
             hovered ? "" : "bg-gradient-to-b from-background-main"
           }`}
         >
-          {!hovered && (
-            <div className="flex h-full flex-col justify-between p-4">
-              <h3 className="text-lg font-semibold text-primary-font-blue transition">
-                {title.toUpperCase()}
-              </h3>
-              <div className="grid grid-cols-4 gap-6">
-                {technologies.map((name, index) => (
-                  <div
-                    key={index}
-                    className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-lg bg-white p-2"
-                  >
-                    <CldImage
-                      src={name}
-                      unoptimized
-                      format="auto"
-                      alt={name}
-                      width="100"
-                      height="100"
-                      crop={{
-                        type: "fit",
-                        aspectRatio: "1:1",
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
+          <div
+            className={`flex h-full w-fit flex-col justify-between p-4 transition-opacity duration-300 ${
+              hovered ? "opacity-0" : "opacity-100"
+            }`}
+          >
+            <h3 className="text-lg font-semibold text-primary-font-blue">
+              {title.toUpperCase()}
+            </h3>
+            <div className="grid grid-cols-3 gap-4 md:grid-cols-4">
+              {technologies.map((name, index) => (
+                <div
+                  key={index}
+                  className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-lg bg-white p-2"
+                >
+                  <CldImage
+                    src={name}
+                    unoptimized
+                    format="auto"
+                    alt={name}
+                    width="100"
+                    height="100"
+                    crop={{
+                      type: "fit",
+                      aspectRatio: "1:1",
+                    }}
+                  />
+                </div>
+              ))}
             </div>
-          )}
+          </div>
         </div>
       </div>
     </Link>

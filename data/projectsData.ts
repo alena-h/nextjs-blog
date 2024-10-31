@@ -19,37 +19,44 @@ export const NavLinks = [
 type SocialLink = {
   label: string;
   url: string;
+  link: string;
   icon: React.ElementType;
 };
 
 export const SocialLinks: Record<string, SocialLink> = {
   GitHub: {
     label: "GitHub",
+    link: "/alena-h",
     url: "https://github.com/alena-h",
     icon: FaGithub,
   },
   LinkedIn: {
     label: "LinkedIn",
+    link: "/in/alena-hanchar/",
     url: "https://www.linkedin.com/in/alena-hanchar/",
     icon: FaLinkedin,
   },
   CodePen: {
     label: "CodePen",
+    link: "/Lena-Hanchar",
     url: "https://codepen.io/Lena-Hanchar",
     icon: FaCodepen,
   },
   Instagram: {
     label: "Instagram",
+    link: "/shir0hana",
     url: "https://www.instagram.com/shir0hana",
     icon: FaInstagram,
   },
   Behance: {
     label: "Behance",
+    link: "/lenahanchar",
     url: "https://www.behance.net/lenahanchar",
     icon: FaBehance,
   },
   Email: {
     label: "Email",
+    link: "lena.h102@gmail.com",
     url: "lena.h102@gmail.com",
     icon: FaMailBulk,
   },

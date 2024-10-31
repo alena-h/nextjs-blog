@@ -20,16 +20,16 @@ export default function Contacts() {
 
   return (
     <section id="contact" className="section h-full flex-col">
-      <div className="mx-auto mb-[20%] flex w-full flex-col p-4 px-8">
+      <div className="mb-[20%] flex w-full flex-col p-4 px-8">
         <h2 className="section-title">Contact Me</h2>
-        <div className="relative grid w-full grid-cols-1 items-start gap-4 self-start pt-6 md:grid-cols-2">
+        <div className="relative mx-auto grid w-fit grid-cols-1 items-start gap-4 self-center pt-6 md:grid-cols-2 lg:self-start">
           {Object.entries(SocialLinks).map(
-            ([key, { label, url, icon: Icon }]) => (
+            ([key, { label, url, link, icon: Icon }]) => (
               <div
                 key={key}
-                className="relative flex flex-col items-center pl-0 md:items-start md:pl-[10%]"
+                className="relative flex flex-col items-center justify-stretch lg:flex-row lg:gap-4"
               >
-                <span className="flex items-center text-base leading-6 text-primary-font-blue md:text-[1.5rem] md:leading-[3rem]">
+                <span className="flex items-center text-xl leading-[3rem] text-primary-font-blue">
                   <Icon className="mr-2 text-xl" />
                   {label}:
                 </span>
@@ -37,11 +37,11 @@ export default function Contacts() {
                   href={label === "Email" ? `mailto:${url}` : url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative overflow-hidden text-ellipsis whitespace-nowrap text-base leading-6 text-primary-font-blue hover:underline md:w-full md:text-[1.5rem] md:leading-[3rem]"
+                  className="relative w-fit overflow-hidden text-ellipsis whitespace-nowrap text-lg leading-6 text-primary-font-blue hover:underline md:text-[1.5rem] md:leading-[3rem]"
                   onMouseEnter={() => handleMouseEnter(url, key)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  {url}
+                  {link}
                 </a>
                 {showTooltip && hoveredLink === key && (
                   <Tooltip text={tooltipText} />
